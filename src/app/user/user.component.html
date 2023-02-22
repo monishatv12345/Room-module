@@ -1,0 +1,48 @@
+<div>
+    <table>
+        <tr>
+
+            <td>
+                | Room By
+                Category
+
+                <select #category (change)="getFilterCategory(category.value)">
+                    <option value="" disabled selected>Select</option>
+                    <option>AC Room</option>
+                    <option>Non-AC Room</option>
+                    <option>Deluxe Room</option>
+                    
+
+                </select>
+            </td>
+            
+        </tr>
+    </table>
+
+    <div *ngFor="let r of allRoom" style="background-color: rgb(247, 225, 225);">
+        <table>
+            <tr>
+                <td> <img src="/assets\images/{{r.imageName}}" alt=" Room image" width="150px" height="150px">
+                </td>
+                <td>
+                    <h2>{{r.hotelName}} </h2>
+                    <hr />
+                    
+                    <div [ngSwitch]="r.ratePerDay">
+                        <div *ngSwitchCase="'AC Room'" style="color: green;">AC Room</div>
+                    <div *ngSwitchCase="'Non-AC Room'" style="color: red;">Non-AC Room</div>
+                    <div *ngSwitchCase="'Deluxe Room'" style="color: red;">Deluxe Room</div>
+                    
+                    </div>
+                    <br>
+                    Room Type: {{r.roomType}} <br />
+                    <p>IsAvailable:{{r.isAvailable}}</p>
+                    <br> 
+                    <hr />
+                    <button value="{{r.roomNo}}" (click)="viewRoomDetails(room.value)" #room>
+                        View Details</button>
+                </td>
+            </tr>
+            <hr>
+        </table>
+    </div>

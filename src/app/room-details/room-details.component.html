@@ -1,0 +1,29 @@
+<div style="background-color: rgb(247, 225, 225);">
+    <table>
+        <tr>
+            <td> <img src="/assets\images/{{r.imageName}}" alt=" Room image" width="150px" height="150px">
+            </td>
+            <td>
+                <h2>{{r.hotelName}} </h2>
+                <hr />
+                
+                <div [ngSwitch]="r.ratePerDay">
+                    <div *ngSwitchCase="'AC Room'" style="color: green;">AC Room</div>
+                    <div *ngSwitchCase="'Non-AC Room'" style="color: red;">Non-AC Room</div>
+                    <div *ngSwitchCase="'Deluxe Room'" style="color: red;">Deluxe Room</div>
+                    <div *ngSwitchCase="'Executive Room'" style="color: red;">Executive Room</div>
+                    <div *ngSwitchCase="'FamilySuites Room'" style="color: red;">FamilySuites Room</div>
+                    <div *ngSwitchCase="'SuperDeluxe Room'" style="color: red;">SuperDeluxe Room</div>
+                </div>
+                <br>
+                RoomType: {{r.roomType}} <br />
+                <p>IsAvailable:{{r.isAvailable}}</p>
+                
+                
+                <hr />
+            </td>
+        </tr>
+        <hr>
+    </table>
+</div>
+

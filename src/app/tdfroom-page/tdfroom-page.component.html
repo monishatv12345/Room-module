@@ -1,0 +1,74 @@
+<div style="width: 100%;background-color: rgb(247, 176, 176);align-items: center;">
+    <form style="width: 30%;" (ngSubmit)="submitingRoom()" class="form-horizontal">
+      <div class="mb-3">
+        <label class="form-label">Room No</label>
+        <input type="text" class="form-control" id="roomNo" [(ngModel)]="r.roomNo" name="roomNo" #roomNo="ngModel"
+          required pattern="[0-9][0-9][0-9]">
+        <div *ngIf="roomNo.invalid">
+          <span style="color: red;" *ngIf="roomNo.errors?.['required']">
+  
+            Room No is required Field
+          </span>
+          <span style="color: red;" *ngIf="roomNo.errors?.['pattern']">
+            Room No is not valid
+          </span>
+        </div>
+        <span style="color: rgb(4, 205, 51);" *ngIf="roomNo.valid">
+          Room No is valid
+        </span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Hotel Name</label>
+        <input type="text" class="form-control" [(ngModel)]="r.hotelName" id="hotelName" name="hotelName"
+          #hotelName="ngModel" required pattern="[0-9]*[a-zA-Z_]+[0-9]*">
+        <div *ngIf="hotelName.invalid">
+          <span style="color: red;" *ngIf="hotelName.errors?.['required']">
+  
+            Hotel Name is required Field
+          </span>
+          <span style="color: red;" *ngIf="hotelName.errors?.['pattern']">
+            Hotel Name is not valid
+          </span>
+        </div>
+        <span style="color: rgb(4, 205, 51);" *ngIf="hotelName.valid">
+          Hotel Name is valid
+        </span>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-auto my-1">
+  
+          <label class="mr-sm-2" for="inlineFormCustomerSelect">Room Type</label>
+          <select class="custom-select mr-sm-2" [(ngModel)]="r.roomType" id="roomType" name="roomType" #roomType="ngModel"
+            required>
+            <option value=" " disabled selected>Select</option>
+            <option value="AC Room">AC Room</option>
+            <option value="Non-AC Room">Non-AC Room</option>
+            <option value="Deluxe Room">Deluxe Room</option>
+            
+          </select>
+          <div *ngIf="roomType.invalid">
+            <span style="color: red;" *ngIf="roomType.errors?.['required']">
+              Room Type is required Field
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">RatePerDay</label>
+        <input type="text" class="form-control" [(ngModel)]="r.ratePerDay" id="ratePerDay" name="ratePerDay">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">IsAvailable</label>
+        <input type="text" class="form-control" id="isAvailable" [(ngModel)]="r.isAvailable" name="isAvailable">
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Image Name</label>
+        <input type="text" class="form-control" [(ngModel)]="r.imageName" id="image" name="image">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
